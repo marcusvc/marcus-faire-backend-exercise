@@ -1,4 +1,4 @@
-package com.faire.marcus.exercise.command;
+package com.faire.marcus.exercise.runner;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,14 +9,14 @@ import com.faire.marcus.exercise.context.InputContext;
 import com.faire.marcus.exercise.controller.MetricsController;
 
 @Component
-public class CommandLine implements CommandLineRunner {
+public class MetricsCommandLineRunner implements CommandLineRunner {
 	
-	private static final Logger LOG = LoggerFactory.getLogger(CommandLine.class);
+	private static final Logger LOG = LoggerFactory.getLogger(MetricsCommandLineRunner.class);
 	
 	private InputContext inputContext;
 	private MetricsController metricsController;
 	
-	public CommandLine(InputContext inputContext, MetricsController metricsController) {
+	public MetricsCommandLineRunner(InputContext inputContext, MetricsController metricsController) {
 		this.inputContext = inputContext;
 		this.metricsController = metricsController;
 	}
