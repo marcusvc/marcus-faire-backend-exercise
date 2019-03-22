@@ -35,10 +35,31 @@ public class PriceCentsUtilsTest {
 	}
 	
 	@Test
-	public void testTooShort() {
+	public void testStringLength0() {
+		String priceCents = "";
+		BigDecimal bigDecimal = priceCentsUtils.toBigDecimal(priceCents);
+		assertEquals(new BigDecimal("0.00"), bigDecimal);
+	}
+	
+	@Test
+	public void testStringLength1() {
+		String priceCents = "3";
+		BigDecimal bigDecimal = priceCentsUtils.toBigDecimal(priceCents);
+		assertEquals(new BigDecimal("0.03"), bigDecimal);
+	}
+	
+	@Test
+	public void testStringLength2() {
 		String priceCents = "66";
 		BigDecimal bigDecimal = priceCentsUtils.toBigDecimal(priceCents);
-		assertEquals(null, bigDecimal);
+		assertEquals(new BigDecimal("0.66"), bigDecimal);
+	}
+	
+	@Test
+	public void testStringLength3() {
+		String priceCents = "123";
+		BigDecimal bigDecimal = priceCentsUtils.toBigDecimal(priceCents);
+		assertEquals(new BigDecimal("1.23"), bigDecimal);
 	}
 	
 	@Test

@@ -94,5 +94,10 @@ public class Product {
 	public void setUpdatedAt(String updatedAt) {
 		this.updatedAt = updatedAt;
 	}
+	@Override
+	public String toString() {
+		return "Product [" + (brandId != null ? "brandId=" + brandId + ", " : "") + (name != null ? "name=" + name : "")
+				+ "]";
+	}
 	
 }

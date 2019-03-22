@@ -2,12 +2,7 @@ package com.faire.marcus.exercise.client;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.security.cert.CertificateException;
-import java.security.cert.X509Certificate;
 
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
@@ -16,9 +11,7 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.client.HttpUrlConnectorProvider;
-import org.glassfish.jersey.logging.LoggingFeature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -32,6 +25,7 @@ import com.faire.marcus.exercise.model.Products;
 @Service
 public class FaireClient {
 	
+
 	private static final Logger LOG = LoggerFactory.getLogger(FaireClient.class);
 	
 	private static final String X_FAIRE_ACCESS_TOKEN = "X-FAIRE-ACCESS-TOKEN";
@@ -40,6 +34,10 @@ public class FaireClient {
 	private static final String ORDER_RESOURCE_PATH = "/api/v1/orders";
 	private static final String OPTION_RESOURCE_PATH = "/api/v1/products/options";
 	private static final String INVENTORY_LEVEL_RESOURCE_PATH = "/api/v1/products/options/inventory-levels";
+	private static final String JERSEY_CONFIG_CLIENT_READ_TIMEOUT = "jersey.config.client.readTimeout";
+	private static final String JERSEY_CONFIG_CLIENT_CONNECT_TIMEOUT = "jersey.config.client.connectTimeout";
+	private static final int READ_TIMEOUT = 5000;
+	private static final int CONNECT_TIMEOUT = 3000;
 	
 	private TokenInputContext tokenInputContext;
 	
@@ -50,7 +48,9 @@ public class FaireClient {
 	public Products consumesAllProducts() {
 		try {
 
-			Client client = ClientBuilder.newClient(new ClientConfig().register(LoggingFeature.class));
+			Client client = ClientBuilder.newClient()
+					.property(JERSEY_CONFIG_CLIENT_CONNECT_TIMEOUT, CONNECT_TIMEOUT)
+					.property(JERSEY_CONFIG_CLIENT_READ_TIMEOUT, READ_TIMEOUT);
 			WebTarget brandTarget = client
 					.target(new URI(API_BASE_URI))
 					.path(PRODUCT_RESOURCE_PATH);
@@ -69,7 +69,9 @@ public class FaireClient {
 	public Orders consumesAllOrders() {
 		try {
 
-			Client client = ClientBuilder.newClient(new ClientConfig().register(LoggingFeature.class));
+			Client client = ClientBuilder.newClient()
+					.property(JERSEY_CONFIG_CLIENT_CONNECT_TIMEOUT, CONNECT_TIMEOUT)
+					.property(JERSEY_CONFIG_CLIENT_READ_TIMEOUT, READ_TIMEOUT);
 			WebTarget brandTarget = client
 					.target(new URI(API_BASE_URI))
 					.path(ORDER_RESOURCE_PATH);
@@ -88,7 +90,9 @@ public class FaireClient {
 	public void updateProductOption(Option updateOption) {
 		try {
 
-			Client client = ClientBuilder.newClient(new ClientConfig().register(LoggingFeature.class));
+			Client client = ClientBuilder.newClient()
+					.property(JERSEY_CONFIG_CLIENT_CONNECT_TIMEOUT, CONNECT_TIMEOUT)
+					.property(JERSEY_CONFIG_CLIENT_READ_TIMEOUT, READ_TIMEOUT);
 			WebTarget brandTarget = client
 					.target(new URI(API_BASE_URI))
 					.path(OPTION_RESOURCE_PATH)
@@ -110,7 +114,9 @@ public class FaireClient {
 	public void updateInventoryLevel(InventoryLevel inventoryLevel) {
 		try {
 
-			Client client = ClientBuilder.newClient(new ClientConfig().register(LoggingFeature.class));
+			Client client = ClientBuilder.newClient()
+					.property(JERSEY_CONFIG_CLIENT_CONNECT_TIMEOUT, CONNECT_TIMEOUT)
+					.property(JERSEY_CONFIG_CLIENT_READ_TIMEOUT, READ_TIMEOUT);
 			WebTarget brandTarget = client
 					.target(new URI(API_BASE_URI))
 					.path(INVENTORY_LEVEL_RESOURCE_PATH)
@@ -125,22 +131,6 @@ public class FaireClient {
 		} catch (URISyntaxException e) {
 			throw new RuntimeException(e);
 		}
-	}
-	
-	private Client getNonSecureClient() throws Exception {
-
-	    SSLContext sslcontext = SSLContext.getInstance("TLS");
-
-	    sslcontext.init(null, new TrustManager[]{new X509TrustManager() {
-	        public void checkClientTrusted(X509Certificate[] arg0, String arg1) throws CertificateException {}
-	        public void checkServerTrusted(X509Certificate[] arg0, String arg1) throws CertificateException {}
-	        public X509Certificate[] getAcceptedIssuers() { return new X509Certificate[0]; }
-	    }}, new java.security.SecureRandom());
-
-	    return ClientBuilder.newBuilder()
-	                        .sslContext(sslcontext)
-	                        .hostnameVerifier((s1, s2) -> true)
-	                        .build();
 	}
 
 }
