@@ -11,10 +11,10 @@ public class App {
 	private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
 
 	public static void main(String[] args) {
+		LOGGER.debug("Running marcus-faire-backend-exercise");
 		//FIXME Remove this!
 		args = new String[] {"HQLA9307HSLQYTC24PO2G0LITTIOHS2MJC8120PVZ83HJK4KACRZJL91QB7K01NWS2TUCFXGCHQ8HVED8WNZG0KS6XRNBFRNGY71"};
 		SpringApplication.run(App.class, args);
-		LOGGER.debug("Running marcus-faire-backend-exercise");
 	}
 
 }

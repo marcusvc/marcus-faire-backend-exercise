@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 
 import com.faire.marcus.exercise.context.TokenInputContext;
 import com.faire.marcus.exercise.controller.MetricsController;
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 
 @Component
 public class MetricsCommandLineRunner implements CommandLineRunner {
@@ -24,12 +23,12 @@ public class MetricsCommandLineRunner implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		LOG.info("Command line running");
+		LOG.debug("Command line running");
 		if (args != null && args.length == 1) {
 			inputContext.setToken(args[0]);
 			metricsController.execute();
 		} else {
-			LOG.info("Input not acceptable: {}", args);
+			LOG.debug("Input not acceptable: {}", args);
 		}
 	}
 

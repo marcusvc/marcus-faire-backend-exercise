@@ -1,6 +1,5 @@
 package com.faire.marcus.exercise.model;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -16,9 +15,9 @@ public class Product {
 	@XmlElement(name="short_description")
 	private String shortDescription;
 	@XmlElement(name="wholesale_price_cents")
-	private BigDecimal wholesalePriceCents;
+	private String wholesalePriceCents;
 	@XmlElement(name="retail_price_cents")
-	private BigDecimal retailPriceCents;
+	private String retailPriceCents;
 	private Boolean active;
 	private String name;
 	@XmlElement(name="unit_multiplier")
@@ -47,16 +46,16 @@ public class Product {
 	public void setShortDescription(String shortDescription) {
 		this.shortDescription = shortDescription;
 	}
-	public BigDecimal getWholesalePriceCents() {
+	public String getWholesalePriceCents() {
 		return wholesalePriceCents;
 	}
-	public void setWholesalePriceCents(BigDecimal wholesalePriceCents) {
+	public void setWholesalePriceCents(String wholesalePriceCents) {
 		this.wholesalePriceCents = wholesalePriceCents;
 	}
-	public BigDecimal getRetailPriceCents() {
+	public String getRetailPriceCents() {
 		return retailPriceCents;
 	}
-	public void setRetailPriceCents(BigDecimal retailPriceCents) {
+	public void setRetailPriceCents(String retailPriceCents) {
 		this.retailPriceCents = retailPriceCents;
 	}
 	public Boolean getActive() {

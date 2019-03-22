@@ -1,11 +1,13 @@
 package com.faire.marcus.exercise.model;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 @XmlAccessorType (XmlAccessType.FIELD)
 public class Order {
@@ -19,6 +21,8 @@ public class Order {
 	private List<Item> items = new ArrayList<>();
 	private List<Shipment> shipments = new ArrayList<>();
 	private Address address;
+	@XmlTransient
+	private BigDecimal total;
 
 	public String getId() {
 		return id;
@@ -61,6 +65,12 @@ public class Order {
 	}
 	public void setAddress(Address address) {
 		this.address = address;
+	}
+	public BigDecimal getTotal() {
+		return total;
+	}
+	public void setTotal(BigDecimal total) {
+		this.total = total;
 	}
 
 }

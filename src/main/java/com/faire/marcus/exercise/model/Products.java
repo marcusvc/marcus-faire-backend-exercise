@@ -28,10 +28,10 @@ public class Products {
 		this.limit = limit;
 	}
 	public List<Product> getProducts() {
-		return new ArrayList<Product>(products);
+		return new ArrayList<>(products);
 	}
 	public void setProducts(List<Product> products) {
-		this.products = new ArrayList<Product>(products);
+		this.products = new ArrayList<>(products);
 	}
 
 }
