@@ -35,6 +35,10 @@ public class InventoryRepository {
 		return new HashMap<>(inventory);
 	}
 	
+	public boolean containsKey(String optionId) {
+		return inventory.containsKey(optionId);
+	}
+	
 	public boolean isEmpty() {
 		return inventory.isEmpty();
 	}
