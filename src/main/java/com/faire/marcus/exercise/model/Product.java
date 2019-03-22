@@ -1,23 +1,69 @@
 package com.faire.marcus.exercise.model;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 
 @XmlAccessorType (XmlAccessType.FIELD)
 public class Product {
 	
-	private Integer id;
-	private Brand brand;
+	private String id;
+	@XmlElement(name="brand_id")
+	private String brandId;
+	@XmlElement(name="short_description")
+	private String shortDescription;
+	@XmlElement(name="wholesale_price_cents")
+	private BigDecimal wholesalePriceCents;
+	@XmlElement(name="retail_price_cents")
+	private BigDecimal retailPriceCents;
+	private Boolean active;
 	private String name;
-	private BigDecimal price;
+	@XmlElement(name="unit_multiplier")
+	private Integer unitMultiplier;
+	private List<Option> options;
+	@XmlElement(name="created_at")
+	private String createdAt; //"20190314T000915.000Z"
+	@XmlElement(name="updated_at")
+	private String updatedAt; //"20190315T000915.000Z"
 
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
+	}
+	public String getBrandId() {
+		return brandId;
+	}
+	public void setBrandId(String brandId) {
+		this.brandId = brandId;
+	}
+	public String getShortDescription() {
+		return shortDescription;
+	}
+	public void setShortDescription(String shortDescription) {
+		this.shortDescription = shortDescription;
+	}
+	public BigDecimal getWholesalePriceCents() {
+		return wholesalePriceCents;
+	}
+	public void setWholesalePriceCents(BigDecimal wholesalePriceCents) {
+		this.wholesalePriceCents = wholesalePriceCents;
+	}
+	public BigDecimal getRetailPriceCents() {
+		return retailPriceCents;
+	}
+	public void setRetailPriceCents(BigDecimal retailPriceCents) {
+		this.retailPriceCents = retailPriceCents;
+	}
+	public Boolean getActive() {
+		return active;
+	}
+	public void setActive(Boolean active) {
+		this.active = active;
 	}
 	public String getName() {
 		return name;
@@ -25,17 +71,29 @@ public class Product {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Brand getBrand() {
-		return brand;
+	public Integer getUnitMultiplier() {
+		return unitMultiplier;
 	}
-	public void setBrand(Brand brand) {
-		this.brand = brand;
+	public void setUnitMultiplier(Integer unitMultiplier) {
+		this.unitMultiplier = unitMultiplier;
 	}
-	public BigDecimal getPrice() {
-		return price;
+	public List<Option> getOptions() {
+		return options;
 	}
-	public void setPrice(BigDecimal price) {
-		this.price = price;
+	public void setOptions(List<Option> options) {
+		this.options = options;
 	}
-
+	public String getCreatedAt() {
+		return createdAt;
+	}
+	public void setCreatedAt(String createdAt) {
+		this.createdAt = createdAt;
+	}
+	public String getUpdatedAt() {
+		return updatedAt;
+	}
+	public void setUpdatedAt(String updatedAt) {
+		this.updatedAt = updatedAt;
+	}
+	
 }

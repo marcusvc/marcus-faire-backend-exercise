@@ -5,18 +5,19 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import com.faire.marcus.exercise.context.InputContext;
+import com.faire.marcus.exercise.context.TokenInputContext;
 import com.faire.marcus.exercise.controller.MetricsController;
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 
 @Component
 public class MetricsCommandLineRunner implements CommandLineRunner {
 	
 	private static final Logger LOG = LoggerFactory.getLogger(MetricsCommandLineRunner.class);
 	
-	private InputContext inputContext;
+	private TokenInputContext inputContext;
 	private MetricsController metricsController;
 	
-	public MetricsCommandLineRunner(InputContext inputContext, MetricsController metricsController) {
+	public MetricsCommandLineRunner(TokenInputContext inputContext, MetricsController metricsController) {
 		this.inputContext = inputContext;
 		this.metricsController = metricsController;
 	}

@@ -3,7 +3,7 @@ package com.faire.marcus.exercise.context;
 import org.springframework.stereotype.Component;
 
 @Component
-public class InputContext {
+public class TokenInputContext {
 	
 	private String token;
 	
