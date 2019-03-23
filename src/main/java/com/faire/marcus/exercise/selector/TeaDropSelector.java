@@ -9,7 +9,7 @@ import com.faire.marcus.exercise.model.Product;
 import com.faire.marcus.exercise.model.Products;
 
 @Component
-public class TeaDropSelector implements BrandSelector<Product, Products> {
+public class TeaDropSelector implements Selector<Product, Products> {
 
 	@Override
 	public List<Product> select(Products products) {

@@ -10,7 +10,7 @@ import com.faire.marcus.exercise.model.Orders;
 import com.faire.marcus.exercise.repository.InventoryRepository;
 
 @Component
-public class TeaDropBestSellingSelector implements BrandSelector<Item, Orders> {
+public class TeaDropBestSellingSelector implements Selector<Item, Orders> {
 	
 	private InventoryRepository inventoryRepository;
 	

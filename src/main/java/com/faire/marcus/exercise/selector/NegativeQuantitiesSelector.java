@@ -9,7 +9,7 @@ import com.faire.marcus.exercise.model.Option;
 import com.faire.marcus.exercise.model.Products;
 
 @Component
-public class NegativeQuantitiesSelector implements BrandSelector<Option, Products> {
+public class NegativeQuantitiesSelector implements Selector<Option, Products> {
 	
 	@Override
 	public List<Option> select(Products products) {

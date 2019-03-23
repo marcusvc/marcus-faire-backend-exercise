@@ -17,7 +17,7 @@ import com.faire.marcus.exercise.repository.InventoryRepository;
 import com.faire.marcus.exercise.util.PriceCentsUtils;
 
 @Component
-public class TeaDropMoreExpensiveOrderSelector implements BrandSelector<Order, Orders> {
+public class TeaDropMoreExpensiveOrderSelector implements Selector<Order, Orders> {
 	
 	private InventoryRepository inventoryRepository;
 	

@@ -10,7 +10,7 @@ import com.faire.marcus.exercise.model.Orders;
 import com.faire.marcus.exercise.repository.InventoryRepository;
 
 @Component
-public class BackorderedSelector implements BrandSelector<Order, Orders> {
+public class BackorderedSelector implements Selector<Order, Orders> {
 	
 	private InventoryRepository inventoryRepository;
 	
