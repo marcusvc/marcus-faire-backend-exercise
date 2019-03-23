@@ -18,7 +18,7 @@ mvn spring-boot:run -Dspring-boot.run.arguments=HQLA9307HSLQYTC24PO2G0LITTIOHS2M
 
 - Collect more statistics
 
-- Increase code coverage
+- Increase code coverage by unit tests
 
 - Improve cohesion
 
