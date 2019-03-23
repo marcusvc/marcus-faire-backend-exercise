@@ -27,3 +27,5 @@ mvn spring-boot:run -Dspring-boot.run.arguments=HQLA9307HSLQYTC24PO2G0LITTIOHS2M
 - Improve output messages
 
 - Review functional programming
+
+- Javadoc
