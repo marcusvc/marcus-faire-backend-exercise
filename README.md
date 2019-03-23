@@ -1,8 +1,10 @@
 # Faire Backend Exercise from Marcus
 
+![alt Faire](https://i.stack.imgur.com/sLKEe.png)
+
 ## Download the jar file and run at terminal or checkout the project and run with Maven.
 
-## Jar file: [Download](https://drive.google.com/open?id=130rhC1Mdttlu9TrxhNLmPES5HpL4xsv_)
+### Jar file: [Download](https://drive.google.com/open?id=130rhC1Mdttlu9TrxhNLmPES5HpL4xsv_)
 
 ## To execute at terminal, run the following command:
 
@@ -16,7 +18,7 @@ mvn spring-boot:run -Dspring-boot.run.arguments=HQLA9307HSLQYTC24PO2G0LITTIOHS2M
 
 - Collect more statistics
 
-- Increase code coverage
+- Increase code coverage by unit tests
 
 - Improve cohesion
 
@@ -27,3 +29,5 @@ mvn spring-boot:run -Dspring-boot.run.arguments=HQLA9307HSLQYTC24PO2G0LITTIOHS2M
 - Improve output messages
 
 - Review functional programming
+
+- Javadoc
