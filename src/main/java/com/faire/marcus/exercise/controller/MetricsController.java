@@ -57,6 +57,20 @@ public class MetricsController {
 		showBestSelling(allOrders);
 		showTheLargestOrderByDollarAmount(allOrders);
 		showStateWithTheMostOrders(allOrders);
+		showStateWithTheMostCanceledOrders(allOrders);
+	}
+
+	private void showStateWithTheMostCanceledOrders(Orders orders) {
+		List<Address> selecteds = selectorController.getAddressCanceledSelector().select(orders);
+		Map<String, Integer> stateOrdersCounterMap = new HashMap<String, Integer>();
+		selecteds.stream().forEach(address -> stateOrdersCounterMap.merge(address.getState(), 1, Integer::sum));
+
+		Map<String, Integer> sortedStateOrdersCounterMap = stateOrdersCounterMap.entrySet().stream()
+				.sorted(Entry.<String, Integer>comparingByValue().reversed())
+				.collect(Collectors.toMap(Entry::getKey, Entry::getValue, (e1, e2) -> e2, LinkedHashMap::new));
+
+		sortedStateOrdersCounterMap.entrySet().stream().findFirst()
+		.ifPresent(entry -> LOG.debug("State with the most canceled orders: {} - Orders: {}", entry.getKey(), entry.getValue()));
 	}
 
 	private void showStateWithTheMostOrders(Orders orders) {

@@ -2,6 +2,7 @@ package com.faire.marcus.exercise.controller;
 
 import org.springframework.stereotype.Component;
 
+import com.faire.marcus.exercise.selector.AddressCanceledSelector;
 import com.faire.marcus.exercise.selector.AddressSelector;
 import com.faire.marcus.exercise.selector.BackorderedSelector;
 import com.faire.marcus.exercise.selector.NegativeQuantitiesSelector;
@@ -20,11 +21,13 @@ public class SelectorController {
 	private TeaDropBestSellingSelector teaDropBestSellingSelector;
 	private TeaDropMoreExpensiveOrderSelector teaDropMoreExpensiveOrderSelector;
 	private AddressSelector addressSelector;
+	private AddressCanceledSelector addressCanceledSelector;
 	
 	public SelectorController(TeaDropSelector teaDropSelector, BackorderedSelector backorderedSelector,
 			ProcessableSelector processableSelector, NegativeQuantitiesSelector negativeQuantitiesSelector,
 			TeaDropBestSellingSelector teaDropBestSellingSelector, AddressSelector addressSelector,
-			TeaDropMoreExpensiveOrderSelector teaDropMoreExpensiveOrderSelector) {
+			TeaDropMoreExpensiveOrderSelector teaDropMoreExpensiveOrderSelector,
+			AddressCanceledSelector addressCanceledSelector) {
 		this.teaDropSelector = teaDropSelector;
 		this.backorderedSelector = backorderedSelector;
 		this.processableSelector = processableSelector;
@@ -32,6 +35,7 @@ public class SelectorController {
 		this.teaDropBestSellingSelector = teaDropBestSellingSelector;
 		this.addressSelector = addressSelector;
 		this.teaDropMoreExpensiveOrderSelector = teaDropMoreExpensiveOrderSelector;
+		this.addressCanceledSelector = addressCanceledSelector;
 	}
 
 	public TeaDropSelector getTeaDropSelector() {
@@ -60,6 +64,10 @@ public class SelectorController {
 
 	public AddressSelector getAddressSelector() {
 		return addressSelector;
+	}
+
+	public AddressCanceledSelector getAddressCanceledSelector() {
+		return addressCanceledSelector;
 	}
 
 }
